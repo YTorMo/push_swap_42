@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:49:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/08 09:22:31 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/08 10:33:08 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ t_stk	*ft_new_copied_node(t_stk *to_copy_node)
 	if (!new_node)
 		return (NULL);
 	new_node->num = to_copy_node->num;
-	new_node->f_pos = to_copy_node->f_pos;
 	new_node->rl_pos = to_copy_node->rl_pos;
 	new_node->prv = to_copy_node->prv;
 	new_node->nxt = to_copy_node->nxt;

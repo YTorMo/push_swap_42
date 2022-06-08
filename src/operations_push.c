@@ -6,13 +6,13 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 10:53:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/07 16:52:22 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/08 10:38:44 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_push_ab(t_stk **a, t_stk **b, int max_size)
+void	ft_push_ab(t_stk **a, t_stk **b, int max_size, int c)
 {
 	t_stk		*memo;
 
@@ -21,6 +21,10 @@ void	ft_push_ab(t_stk **a, t_stk **b, int max_size)
 		ft_push_b_void(a, b, memo, max_size);
 	else if (*a)
 		ft_push_b_filled(a, b, memo, max_size);
+	if (c == 'a')
+		ft_putstr_fd("pa\n", 1);
+	else if (c == 'b')
+		ft_putstr_fd("pb\n", 1);
 }
 
 void	ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo, int max_size)
@@ -34,7 +38,6 @@ void	ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo, int max_size)
 	(*a)->prv = memo;
 	(*b)->prv = *b;
 	(*b)->nxt = *b;
-	(*b)->f_pos = max_size;
 }
 
 void	ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo, int max_size)
@@ -54,7 +57,6 @@ void	ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo, int max_size)
 	(*a)->prv = NULL;
 	free((*a)->prv);
 	(*a)->prv = memo_2;
-	(*b)->f_pos = max_size;
 	if ((*a)->num == (*b)->num)
 	{
 		*a = NULL;

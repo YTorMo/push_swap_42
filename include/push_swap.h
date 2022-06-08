@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:21:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/07 11:43:10 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/08 10:32:18 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,21 @@
 typedef struct s_stk
 {
 	int				num;
-	int				f_pos;
 	int				rl_pos;
 	struct s_stk	*nxt;
 	struct s_stk	*prv;
 }					t_stk;
 
-void				ft_swap_ab(t_stk **stk);
+void				ft_swap_ab(t_stk **stk, int c);
 void				ft_swap_s(t_stk **swap1, t_stk **swap2);
-void				ft_push_ab(t_stk **a, t_stk **b, int max_size);
+void				ft_push_ab(t_stk **a, t_stk **b, int max_size, int c);
 void				ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo,
 						int max_size);
 void				ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo,
 						int max_size);
-void				ft_rotate_ab(t_stk **stk);
+void				ft_rotate_ab(t_stk **stk, int c);
 void				ft_rotate_r(t_stk **stk1, t_stk **stk2);
-void				ft_reverse_rotate_ab(t_stk **stk);
+void				ft_reverse_rotate_ab(t_stk **stk, int c);
 void				ft_reverse_rotate_r(t_stk **stk1, t_stk **stk2);
 int					ft_max_nbr_length(int max_size);
 int					ft_check_sort(t_stk **a, int stk_size);

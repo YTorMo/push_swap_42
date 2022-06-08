@@ -6,13 +6,13 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:26:10 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/07 11:25:47 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/08 10:01:21 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_swap_ab(t_stk **stk)
+void	ft_swap_ab(t_stk **stk, int c)
 {
 	t_stk	*memo;
 	t_stk	*memo_2;
@@ -31,11 +31,16 @@ void	ft_swap_ab(t_stk **stk)
 		memo->nxt->prv = memo;
 		memo_3->nxt = memo_2;
 		*stk = memo_2;
+		if (c == 'a')
+			ft_putstr_fd("sa\n", 1);
+		else if (c == 'b')
+			ft_putstr_fd("sb\n", 1);
 	}
 }
 
 void	ft_swap_s(t_stk **swap1, t_stk **swap2)
 {
-	ft_swap_ab(swap1);
-	ft_swap_ab(swap2);
+	ft_swap_ab(swap1, 0);
+	ft_swap_ab(swap2, 0);
+	ft_putstr_fd("ss\n", 1);
 }
