@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:21:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/08 12:45:06 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/08 15:23:49 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,18 @@ int					ft_max_nbr_length(int max_size);
 int					ft_check_sort(t_stk **a, int stk_size);
 t_stk				*ft_new_copied_node(t_stk *to_copy_node);
 void				ft_fill_a_frst(char **all_arg, int max_size);
+void				ft_sorter_select(t_stk **a, int max_size);
 t_stk				*ft_new_node(void);
 void				ft_rl_pos_sorted(t_stk	**stk, int max_size);
 int					*ft_sorted_numbers(t_stk	**stk, int max_size);
 int					*ft_stk_to_array(t_stk	**stk, int max_size);
-void				ft_radix(t_stk **a, int max_size);
-void				ft_stk_mv_radix(t_stk **a, t_stk **b, int max_size,
-						int bit_pos);
 int					ft_check_argv(char **argv, int size);
 int					ft_check_only_int(char **argv, int size);
 int					ft_check_size_int(char **argv, int size);
 int					ft_check_dup_int(char **argv, int size);
+void				ft_radix(t_stk **a, int max_size);
+void				ft_stk_mv_radix(t_stk **a, t_stk **b, int max_size,
+						int bit_pos);
+void				ft_sort_three(t_stk **a, int max_size);
+void				ft_sort_five(t_stk **a, int max_size);
 #endif
