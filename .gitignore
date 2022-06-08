@@ -1,0 +1,8 @@
+.DS_Store
+.vscode/
+a.out
+checker_Mac
+main_tests.c
+main_tests_push.c
+main_tests_radix.c
+pruebas.c
