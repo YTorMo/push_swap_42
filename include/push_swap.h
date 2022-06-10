@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:21:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 08:06:34 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 08:43:25 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void				ft_stk_mv_radix(t_stk **a, t_stk **b, int max_size,
 						int bit_pos);
 void				ft_sort_three(t_stk **a, int max_size);
 void				ft_sort_five(t_stk **a, int max_size);
-void				ft_lookfor_and_sort(t_stk **a, t_stk **b, int i,
-						int max_size);
 int					ft_lookfor_pos(t_stk **a, int pos);
+void				ft_push_first(t_stk **a, t_stk **b, int max_size);
+void				ft_push_last(t_stk **a, t_stk **b, int max_size);
 #endif
