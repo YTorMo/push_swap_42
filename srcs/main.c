@@ -6,11 +6,11 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:24:52 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/08 14:41:22 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:32:36 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {

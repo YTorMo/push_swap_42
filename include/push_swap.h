@@ -6,14 +6,14 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:21:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 09:41:29 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:35:48 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "libft.h"
 
 typedef struct s_stk
 {
@@ -25,11 +25,9 @@ typedef struct s_stk
 
 void				ft_swap_ab(t_stk **stk, int c);
 void				ft_swap_s(t_stk **swap1, t_stk **swap2);
-void				ft_push_ab(t_stk **a, t_stk **b, int max_size, int c);
-void				ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo,
-						int max_size);
-void				ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo,
-						int max_size);
+void				ft_push_ab(t_stk **a, t_stk **b, int c);
+void				ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo);
+void				ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo);
 void				ft_rotate_ab(t_stk **stk, int c);
 void				ft_rotate_r(t_stk **stk1, t_stk **stk2);
 void				ft_reverse_rotate_ab(t_stk **stk, int c);
@@ -50,12 +48,12 @@ int					ft_check_dup_int(char **argv, int size);
 void				ft_radix(t_stk **a, int max_size);
 void				ft_stk_mv_radix(t_stk **a, t_stk **b, int max_size,
 						int bit_pos);
-void				ft_sort_three(t_stk **a, int max_size);
-void				ft_sort_five(t_stk **a, int max_size);
+void				ft_sort_three(t_stk **a);
+void				ft_sort_five(t_stk **a);
 int					ft_lookfor_pos(t_stk **a, int pos);
-void				ft_push_first(t_stk **a, t_stk **b, int max_size);
-void				ft_push_last(t_stk **a, t_stk **b, int max_size);
-void				ft_sort_three_five(t_stk **a, int max_size);
-void				ft_sort_four(t_stk **a, int max_size);
-void				ft_push_first_of_four(t_stk **a, t_stk **b, int max_size);
+void				ft_push_first(t_stk **a, t_stk **b);
+void				ft_push_last(t_stk **a, t_stk **b);
+void				ft_sort_three_five(t_stk **a);
+void				ft_sort_four(t_stk **a);
+void				ft_push_first_of_four(t_stk **a, t_stk **b);
 #endif

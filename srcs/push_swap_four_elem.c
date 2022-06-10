@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_three_elem.c                             :+:      :+:    :+:   */
+/*   push_swap_four_elem.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 15:06:38 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 09:28:06 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/06/08 16:12:12 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/06/10 10:51:41 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
-void	ft_sort_three(t_stk **a, int max_size)
+void	ft_sort_four(t_stk **a)
 {
-	if ((*a)->rl_pos == 1)
+	t_stk	**b;
+
+	b = malloc(sizeof(t_stk));
+	if (b)
 	{
-		if ((*a)->nxt->rl_pos == 0)
-			ft_swap_ab(a, 'a');
-		else
-			ft_reverse_rotate_ab(a, 'a');
+		*b = NULL;
+		ft_push_first_of_four(a, b);
+		ft_sort_three_five(a);
+		ft_push_ab(b, a, 'a');
+		free(b);
 	}
-	else if ((*a)->rl_pos == 2)
-	{
-		if ((*a)->nxt->rl_pos == 0)
-			ft_rotate_ab(a, 'a');
-		else
-		{
-			ft_swap_ab(a, 'a');
-			ft_reverse_rotate_ab(a, 'a');
-		}
-	}
+}
+
+void	ft_push_first_of_four(t_stk **a, t_stk **b)
+{
+	int	i;
+
+	i = ft_lookfor_pos(a, 0);
+	if (i == 3)
+		ft_reverse_rotate_ab(a, 'a');
 	else
 	{
-		ft_swap_ab(a, 'a');
-		ft_rotate_ab(a, 'a');
+		while ((*a)->rl_pos != 0)
+			ft_rotate_ab(a, 'a');
 	}
+	ft_push_ab(a, b, 'b');
 }

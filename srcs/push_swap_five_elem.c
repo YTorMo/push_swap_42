@@ -6,13 +6,13 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 15:22:06 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 09:29:07 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:35:42 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
-void	ft_sort_five(t_stk **a, int max_size)
+void	ft_sort_five(t_stk **a)
 {
 	t_stk	**b;
 
@@ -20,17 +20,17 @@ void	ft_sort_five(t_stk **a, int max_size)
 	if (b)
 	{
 		*b = NULL;
-		ft_push_first(a, b, max_size);
-		ft_push_last(a, b, max_size);
-		ft_sort_three_five(a, 3);
-		ft_push_ab(b, a, max_size, 'a');
+		ft_push_first(a, b);
+		ft_push_last(a, b);
+		ft_sort_three_five(a);
+		ft_push_ab(b, a, 'a');
 		ft_rotate_ab(a, 'a');
-		ft_push_ab(b, a, max_size, 'a');
+		ft_push_ab(b, a, 'a');
 		free(b);
 	}
 }
 
-void	ft_push_first(t_stk **a, t_stk **b, int max_size)
+void	ft_push_first(t_stk **a, t_stk **b)
 {
 	int	i;
 
@@ -45,10 +45,10 @@ void	ft_push_first(t_stk **a, t_stk **b, int max_size)
 		while ((*a)->rl_pos != 0)
 			ft_reverse_rotate_ab(a, 'a');
 	}
-	ft_push_ab(a, b, max_size, 'b');
+	ft_push_ab(a, b, 'b');
 }
 
-void	ft_push_last(t_stk **a, t_stk **b, int max_size)
+void	ft_push_last(t_stk **a, t_stk **b)
 {
 	int	i;
 
@@ -63,7 +63,7 @@ void	ft_push_last(t_stk **a, t_stk **b, int max_size)
 		while ((*a)->rl_pos != 4)
 			ft_rotate_ab(a, 'a');
 	}
-	ft_push_ab(a, b, max_size, 'b');
+	ft_push_ab(a, b, 'b');
 }
 
 int	ft_lookfor_pos(t_stk **a, int pos)
@@ -81,7 +81,7 @@ int	ft_lookfor_pos(t_stk **a, int pos)
 	return (i);
 }
 
-void	ft_sort_three_five(t_stk **a, int max_size)
+void	ft_sort_three_five(t_stk **a)
 {
 	if ((*a)->rl_pos == 2)
 	{

@@ -6,11 +6,11 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:31:47 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/08 10:59:41 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:25:56 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	ft_rl_pos_sorted(t_stk	**stk, int max_size)
 {

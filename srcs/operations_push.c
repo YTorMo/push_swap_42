@@ -6,28 +6,28 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 10:53:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/08 10:38:44 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:49:55 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
-void	ft_push_ab(t_stk **a, t_stk **b, int max_size, int c)
+void	ft_push_ab(t_stk **a, t_stk **b, int c)
 {
 	t_stk		*memo;
 
 	memo = NULL;
 	if (!(*b) && *a)
-		ft_push_b_void(a, b, memo, max_size);
+		ft_push_b_void(a, b, memo);
 	else if (*a)
-		ft_push_b_filled(a, b, memo, max_size);
+		ft_push_b_filled(a, b, memo);
 	if (c == 'a')
 		ft_putstr_fd("pa\n", 1);
 	else if (c == 'b')
 		ft_putstr_fd("pb\n", 1);
 }
 
-void	ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo, int max_size)
+void	ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo)
 {
 	*b = ft_new_copied_node(*a);
 	*a = (*a)->nxt;
@@ -40,7 +40,7 @@ void	ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo, int max_size)
 	(*b)->nxt = *b;
 }
 
-void	ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo, int max_size)
+void	ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo)
 {
 	t_stk	*memo_2;
 

@@ -6,16 +6,17 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:49:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/08 10:33:08 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:52:43 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	ft_max_nbr_length(int max_size)
 {
 	int		i;
 
+	i = 0;
 	while (max_size > 0)
 	{
 		max_size /= 10;
