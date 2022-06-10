@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:21:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 08:43:25 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 09:41:29 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,7 @@ void				ft_sort_five(t_stk **a, int max_size);
 int					ft_lookfor_pos(t_stk **a, int pos);
 void				ft_push_first(t_stk **a, t_stk **b, int max_size);
 void				ft_push_last(t_stk **a, t_stk **b, int max_size);
+void				ft_sort_three_five(t_stk **a, int max_size);
+void				ft_sort_four(t_stk **a, int max_size);
+void				ft_push_first_of_four(t_stk **a, t_stk **b, int max_size);
 #endif

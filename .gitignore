@@ -5,6 +5,8 @@ checker_Mac
 main_tests.c
 main_tests_push.c
 main_tests_radix.c
+main_tests_four.c
+main_tests_five.c
 main_tests_rl_pos.c
 pruebas.c
 orders.txt
