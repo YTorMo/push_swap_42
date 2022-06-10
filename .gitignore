@@ -10,3 +10,5 @@ main_tests_five.c
 main_tests_rl_pos.c
 pruebas.c
 orders.txt
+push_swap.dSYM
+push_swap_tester

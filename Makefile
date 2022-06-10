@@ -6,14 +6,14 @@
 #    By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/10 09:59:05 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/06/10 11:30:16 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/06/10 13:48:27 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PS_NAME		=	push_swap
 # C_NAME		=	checker
 
-CC			=	clang
+CC			=	gcc -g0
 
 LIB_DIR		=	libft/
 LIB			=	libft.a
@@ -64,10 +64,10 @@ $(LIB)		:
 				/bin/mv $(LIB_DIR)$(LIB) .
 
 $(PS_NAME)	:	$(PS_OBJ) $(LIB)
-				$(CC) -fsanitize=address -o $@ $^
+				$(CC) -o $@ $^
 
 # $(C_NAME)	:	$(C_OBJ) $(LIB)
-				# $(CC) -fsanitize=address -o $@ $^
+# $(CC) -fsanitize=address -o $@ $^
 
 clean		:	
 				for dir in $(MODULES); do			\
@@ -84,3 +84,5 @@ fclean		:	clean
 re			:	fclean all
 
 .PHONY		:	all clean fclean re
+
+# -fsanitize=address

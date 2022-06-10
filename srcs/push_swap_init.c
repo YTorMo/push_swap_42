@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 15:18:13 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 11:35:58 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 13:53:36 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,23 @@ void	ft_sorter_select(t_stk **a, int max_size)
 			ft_swap_ab(a, 'a');
 	}
 	else if (max_size == 3)
-		ft_sort_three(a);
+	{
+		if (!ft_check_sort(a, max_size))
+			ft_sort_three(a);
+	}
 	else if (max_size == 4)
-		ft_sort_four(a);
+	{
+		if (!ft_check_sort(a, max_size))
+			ft_sort_four(a);
+	}
 	else if (max_size == 5)
-		ft_sort_five(a);
+	{
+		if (!ft_check_sort(a, max_size))
+			ft_sort_five(a);
+	}
 	else if (max_size > 5)
-		ft_radix(a, max_size);
+	{
+		if (!ft_check_sort(a, max_size))
+			ft_radix(a, max_size);
+	}
 }
