@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 11:50:19 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 10:25:33 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:50:35 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	ft_rotate_ab(t_stk **stk, int c)
 		ft_putstr_fd("rb\n", 1);
 }
 
-void	ft_rotate_r(t_stk **stk1, t_stk **stk2)
+void	ft_rotate_r(t_stk **stk1, t_stk **stk2, int c)
 {
 	ft_rotate_ab(stk1, 0);
 	ft_rotate_ab(stk2, 0);
-	ft_putstr_fd("rr\n", 1);
+	if (c == 'r')
+		ft_putstr_fd("rr\n", 1);
 }
 
 void	ft_reverse_rotate_ab(t_stk **stk, int c)
@@ -39,9 +40,10 @@ void	ft_reverse_rotate_ab(t_stk **stk, int c)
 		ft_putstr_fd("rrb\n", 1);
 }
 
-void	ft_reverse_rotate_r(t_stk **stk1, t_stk **stk2)
+void	ft_reverse_rotate_r(t_stk **stk1, t_stk **stk2, int c)
 {
 	ft_reverse_rotate_ab(stk1, 0);
 	ft_reverse_rotate_ab(stk2, 0);
-	ft_putstr_fd("rrr\n", 1);
+	if (c == 'r')
+		ft_putstr_fd("rrr\n", 1);
 }

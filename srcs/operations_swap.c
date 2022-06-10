@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:26:10 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 10:25:36 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:40:53 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ void	ft_swap_ab(t_stk **stk, int c)
 	}
 }
 
-void	ft_swap_s(t_stk **swap1, t_stk **swap2)
+void	ft_swap_s(t_stk **swap1, t_stk **swap2, int c)
 {
 	ft_swap_ab(swap1, 0);
 	ft_swap_ab(swap2, 0);
-	ft_putstr_fd("ss\n", 1);
+	if (c == 's')
+		ft_putstr_fd("ss\n", 1);
 }

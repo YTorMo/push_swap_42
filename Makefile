@@ -6,12 +6,12 @@
 #    By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/10 09:59:05 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/06/10 14:55:55 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/06/10 18:14:36 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PS_NAME		=	push_swap
-# C_NAME		=	checker
+C_NAME		=	checker
 
 CC			=	gcc -g0
 
@@ -45,15 +45,20 @@ PS_FILES	=	main.c \
 				push_swap_utils.c \
 				push_swap_rl_pos.c
 
-# C_FILES		=	c_srcs/c_main.c	
+C_FILES		=	checker.c	\
+				push_swap_utils.c \
+				operations_swap.c \
+				operations_rotate.c \
+				operations_push.c \
 
 PS_SRCS		=	$(addprefix $(DIR), $(PS_FILES))
-# C_SRCS		=	$(addprefix $(DIR), $(C_FILES))
+C_SRCS		=	$(addprefix $(DIR), $(C_FILES))
 PS_OBJ		=	$(PS_SRCS:$(DIR)%.c=$(OBJ_DIR)%.o)
-# C_OBJ		=	$(C_SRCS:$(DIR)%.c=$(OBJ_DIR)%.o)
+C_OBJ		=	$(C_SRCS:$(DIR)%.c=$(OBJ_DIR)%.o)
 
 all			:	$(PS_NAME)	
-# $(C_NAME) 
+
+bonus		:	$(C_NAME) 
 
 obj/%.o		:	srcs/%.c
 				@mkdir -p $(OBJ_DIR) $(SUB_DIR)
@@ -66,8 +71,8 @@ $(LIB)		:
 $(PS_NAME)	:	$(PS_OBJ) $(LIB)
 				$(CC) -o $@ $^
 
-# $(C_NAME)	:	$(C_OBJ) $(LIB)
-# $(CC) -fsanitize=address -o $@ $^
+$(C_NAME)	:	$(C_OBJ) $(LIB)
+				$(CC) -o $@ $^
 
 clean		:	
 				for dir in $(MODULES); do			\
@@ -79,9 +84,9 @@ fclean		:	clean
 				@$(MAKE) fclean -C $(LIB_DIR)
 				@$(RM) $(LIB)
 				@$(RM) $(PS_NAME)
-				# @$(RM) $(C_NAME)
+				@$(RM) $(C_NAME)
 
-re			:	fclean all
+re			:	fclean all bonus
 
 .PHONY		:	all clean fclean re
 
