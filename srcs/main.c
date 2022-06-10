@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:24:52 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 13:55:48 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/10 14:09:45 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 		}
 		ft_fill_a_frst(argv, argc - 1);
 	}
-	free(argv);
 	return (0);
 }
 
