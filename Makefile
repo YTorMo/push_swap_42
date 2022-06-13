@@ -6,7 +6,7 @@
 #    By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/10 09:59:05 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/06/13 16:04:24 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/06/13 16:39:41 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ C_NAME		=	checker
 CC			=	clang
 #gcc -g0
 
-LIB_DIR		=	libft/
+LIB_DIR		=	libft_ps/
 LIB			=	libft.a
 
 DIR			=	srcs/
