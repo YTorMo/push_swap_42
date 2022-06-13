@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:21:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/13 14:30:31 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:08:33 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
-# include <stdio.h>
 
 typedef struct s_stk
 {

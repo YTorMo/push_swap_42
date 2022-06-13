@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 15:32:34 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/13 12:51:20 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:14:48 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,45 +19,48 @@ int	main(int argc, char **argv)
 
 	argv++;
 	argc--;
-	a = ft_fill_a_frst(argv, argc);
+	a = malloc(sizeof(t_stk));
 	b = malloc(sizeof(t_stk));
-	if (!b)
+	if (!b || !a)
 		return (0);
+	ft_fill_stk(argv, argc, a);
 	*b = NULL;
 	ft_check_instructions(a, b);
 	if (ft_check_sort(a, argc) && !(*b))
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
+	ft_free_stk(a, argc);
 	free(a);
 	free(b);
-	system("leaks -q checker");
 	return (0);
 }
+	//system("leaks -q checker");
 
-t_stk	**ft_fill_a_frst(char **all_arg, int max_size)
+void	ft_fill_stk(char **all_arg, int size, t_stk **a)
 {
-	int		size;
-	int		i;
-	t_stk	**stk;
-	t_stk	**a;
+	t_stk	*stk;
 
-	size = max_size;
-	i = 0;
-	stk = malloc(sizeof(t_stk));
-	a = malloc(sizeof(t_stk));
-	if (!a || !stk)
-		return (NULL);
 	while (size--)
 	{
-		*stk = ft_new_node();
-		(*stk)->num = ft_atoi((const char *)all_arg[size]);
-		(*stk)->nxt = *stk;
-		(*stk)->prv = *stk;
-		ft_push_ab(stk, a, size);
+		if (!(*a))
+		{
+			*a = ft_new_node();
+			(*a)->num = ft_atoi((const char *)all_arg[size]);
+			(*a)->nxt = (*a);
+			(*a)->prv = (*a);
+		}
+		else
+		{
+			stk = ft_new_node();
+			stk->num = ft_atoi((const char *)all_arg[size]);
+			stk->prv = (*a)->prv;
+			stk->nxt = *a;
+			(*a)->prv->nxt = stk;
+			(*a)->prv = stk;
+			*a = stk;
+		}
 	}
-	free(stk);
-	return (a);
 }
 
 static void	ft_check_instructions(t_stk **a, t_stk **b)
@@ -76,6 +79,7 @@ static void	ft_check_instructions(t_stk **a, t_stk **b)
 			ft_putstr_fd("Error\n", 2);
 			exit(-1);
 		}
+		free(instruc);
 		instruc = get_next_line(0);
 	}
 }
