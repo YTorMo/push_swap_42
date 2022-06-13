@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 15:22:06 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/13 12:01:22 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:05:44 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,26 +83,29 @@ int	ft_lookfor_pos(t_stk **a, int pos)
 
 void	ft_sort_three_five(t_stk **a)
 {
-	if ((*a)->rl_pos == 2)
+	if (!ft_check_sort(a, 3))
 	{
-		if ((*a)->nxt->rl_pos == 1)
-			ft_swap_ab(a, 'a');
-		else
-			ft_reverse_rotate_ab(a, 'a');
-	}
-	else if ((*a)->rl_pos == 3)
-	{
-		if ((*a)->nxt->rl_pos == 1)
-			ft_rotate_ab(a, 'a');
+		if ((*a)->rl_pos == 2)
+		{
+			if ((*a)->nxt->rl_pos == 1)
+				ft_swap_ab(a, 'a');
+			else
+				ft_reverse_rotate_ab(a, 'a');
+		}
+		else if ((*a)->rl_pos == 3)
+		{
+			if ((*a)->nxt->rl_pos == 1)
+				ft_rotate_ab(a, 'a');
+			else
+			{
+				ft_swap_ab(a, 'a');
+				ft_reverse_rotate_ab(a, 'a');
+			}
+		}
 		else
 		{
 			ft_swap_ab(a, 'a');
-			ft_reverse_rotate_ab(a, 'a');
+			ft_rotate_ab(a, 'a');
 		}
-	}
-	else
-	{
-		ft_swap_ab(a, 'a');
-		ft_rotate_ab(a, 'a');
 	}
 }

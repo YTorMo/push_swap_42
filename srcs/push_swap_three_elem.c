@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 15:06:38 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/13 13:33:46 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:06:20 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_sort_three(t_stk **a)
 			ft_reverse_rotate_ab(a, 'a');
 		}
 	}
-	else
+	else if ((*a)->rl_pos == 0)
 	{
 		ft_swap_ab(a, 'a');
 		ft_rotate_ab(a, 'a');

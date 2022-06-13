@@ -6,11 +6,12 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:49:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/13 15:35:25 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:58:02 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	ft_max_nbr_length(int max_size)
 {
@@ -41,6 +42,8 @@ int	ft_check_sort(t_stk **a, int stk_size)
 	{
 		if (((is_sort)->num) > ((*a)->num))
 			sort = 0;
+		is_sort = *a;
+		*a = (*a)->nxt;
 		i++;
 	}
 	while ((*a)->num != frst)
