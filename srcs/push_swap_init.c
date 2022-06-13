@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 15:18:13 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 14:10:38 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 15:20:57 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,42 @@
 
 void	ft_fill_a_frst(char **all_arg, int max_size)
 {
-	int		size;
-	int		i;
-	t_stk	**stk;
+	t_stk	*stk;
 	t_stk	**a;
 
-	size = max_size;
-	i = 0;
-	stk = malloc(sizeof(t_stk));
 	a = malloc(sizeof(t_stk));
-	if (a && stk)
+	stk = NULL;
+	if (a)
 	{
-		while (size--)
-		{
-			*stk = ft_new_node();
-			(*stk)->num = ft_atoi((const char *)all_arg[size]);
-			(*stk)->nxt = *stk;
-			(*stk)->prv = *stk;
-			ft_push_ab(stk, a, size);
-		}
+		ft_fill_stk(all_arg, max_size, a, stk);
 		ft_rl_pos_sorted(a, max_size);
 		ft_sorter_select(a, max_size);
-		free(stk);
+		ft_free_stk(a, max_size);
 		free(a);
+	}
+}
+
+void	ft_fill_stk(char **all_arg, int size, t_stk **a, t_stk *stk)
+{
+	while (size--)
+	{
+		if (!(*a))
+		{
+			*a = ft_new_node();
+			(*a)->num = ft_atoi((const char *)all_arg[size]);
+			(*a)->nxt = (*a);
+			(*a)->prv = (*a);
+		}
+		else
+		{
+			stk = ft_new_node();
+			stk->num = ft_atoi((const char *)all_arg[size]);
+			stk->prv = (*a)->prv;
+			stk->nxt = *a;
+			(*a)->prv->nxt = stk;
+			(*a)->prv = stk;
+			*a = stk;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 15:32:34 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 18:20:20 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 12:51:20 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("KO\n", 1);
 	free(a);
 	free(b);
+	system("leaks -q checker");
 	return (0);
 }
 

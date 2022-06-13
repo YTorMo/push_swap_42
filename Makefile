@@ -6,14 +6,15 @@
 #    By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/10 09:59:05 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/06/10 18:14:36 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/06/13 15:05:30 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PS_NAME		=	push_swap
 C_NAME		=	checker
 
-CC			=	gcc -g0
+CC			=	clang
+#gcc -g0
 
 LIB_DIR		=	libft/
 LIB			=	libft.a

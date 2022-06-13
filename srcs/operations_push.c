@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 10:53:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 14:11:38 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 15:10:02 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_push_ab(t_stk **a, t_stk **b, int c)
 {
-	t_stk		*memo;
+	t_stk	*memo;
 
 	memo = NULL;
 	if (!(*b) && *a)
@@ -29,12 +29,16 @@ void	ft_push_ab(t_stk **a, t_stk **b, int c)
 
 void	ft_push_b_void(t_stk **a, t_stk **b, t_stk *memo)
 {
+	t_stk	*memo_2;
+
+	memo_2 = NULL;
 	*b = ft_new_copied_node(*a);
+	memo_2 = *a;
 	*a = (*a)->nxt;
 	memo = (*a)->prv->prv;
 	(*a)->prv->prv->nxt = *a;
 	(*a)->prv = NULL;
-	free((*a)->prv);
+	free(memo_2);
 	(*a)->prv = memo;
 	(*b)->prv = *b;
 	(*b)->nxt = *b;
@@ -51,15 +55,14 @@ void	ft_push_b_filled(t_stk **a, t_stk **b, t_stk *memo)
 	(*b)->prv->nxt = memo;
 	(*b)->prv = memo;
 	*b = memo;
-	*a = (*a)->nxt;
-	memo_2 = (*a)->prv->prv;
-	(*a)->prv->prv->nxt = *a;
-	(*a)->prv = NULL;
-	free((*a)->prv);
-	(*a)->prv = memo_2;
-	if ((*a)->num == (*b)->num)
-	{
+	memo = *a;
+	*a = memo->nxt;
+	(*a)->prv = memo->prv;
+	memo->prv->nxt = *a;
+	memo->nxt = NULL;
+	memo->prv = NULL;
+	memo->rl_pos = -1;
+	free(memo);
+	if ((*a)->rl_pos == -1)
 		*a = NULL;
-		free(*a);
-	}
 }

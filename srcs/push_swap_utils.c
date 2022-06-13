@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:49:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 14:11:03 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 15:35:25 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,25 @@ int	ft_max_nbr_length(int max_size)
 
 int	ft_check_sort(t_stk **a, int stk_size)
 {
-	int	*is_sort;
-	int	i;
+	t_stk	*is_sort;
+	int		i;
+	int		sort;
+	int		frst;
 
-	i = 0;
-	is_sort = malloc(sizeof(int) * stk_size);
-	if (!is_sort)
-		return (0);
-	while (stk_size > i)
-	{
-		is_sort[i] = (*a)->num;
-		*a = (*a)->nxt;
-		i++;
-	}
 	i = 1;
+	sort = 1;
+	is_sort = *a;
+	frst = is_sort->num;
+	*a = (*a)->nxt;
 	while (stk_size > i)
 	{
-		if (is_sort[i - 1] > is_sort[i])
-			return (0);
+		if (((is_sort)->num) > ((*a)->num))
+			sort = 0;
 		i++;
 	}
-	free(is_sort);
-	return (1);
+	while ((*a)->num != frst)
+		*a = (*a)->prv;
+	return (sort);
 }
 
 t_stk	*ft_new_copied_node(t_stk *to_copy_node)
@@ -73,4 +70,18 @@ t_stk	*ft_new_node(void)
 	if (!new_node)
 		return (NULL);
 	return (new_node);
+}
+
+void	ft_free_stk(t_stk **stk, int size)
+{
+	t_stk	*memo;
+
+	memo = *stk;
+	*stk = (*stk)->nxt;
+	while (size--)
+	{
+		free(memo);
+		memo = *stk;
+		*stk = (*stk)->nxt;
+	}
 }

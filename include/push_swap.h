@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:21:42 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/10 17:49:22 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/13 14:30:31 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <stdio.h>
 
 typedef struct s_stk
 {
@@ -37,6 +38,8 @@ int					ft_check_sort(t_stk **a, int stk_size);
 t_stk				*ft_new_copied_node(t_stk *to_copy_node);
 void				ft_fill_a_frst(char **all_arg, int max_size);
 void				ft_sorter_select(t_stk **a, int max_size);
+void				ft_fill_stk(char **all_arg, int size, t_stk **a,
+						t_stk *stk);
 t_stk				*ft_new_node(void);
 void				ft_rl_pos_sorted(t_stk	**stk, int max_size);
 int					*ft_sorted_numbers(t_stk	**stk, int max_size);
@@ -56,4 +59,5 @@ void				ft_push_last(t_stk **a, t_stk **b);
 void				ft_sort_three_five(t_stk **a);
 void				ft_sort_four(t_stk **a);
 void				ft_push_first_of_four(t_stk **a, t_stk **b);
+void				ft_free_stk(t_stk **stk, int size);
 #endif
